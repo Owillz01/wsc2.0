@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function downloadImage(event) {
+            setName()
+        //   var file =   document.getElementById('file').value
+           
+            // $("#download").on('click', function(){
+            //     html2canvas(document.getElementById("bg"), { useCORS: true }).then(canvas  => {
+            //         Canvas2Image.saveAsPNG(canvas)
+            //     })
+            // })
+
+            document.querySelector('button').addEventListener('click', function () {
+                html2canvas(document.querySelector('#bg'), { useCORS: true }, {
+                    onrendered: function (canvas) {
+                        // document.body.appendChild(canvas);
+                        return Canvas2Image.saveAsPNG(canvas);
+                    }
+                });
+            });
+        };
+
+        
+
+        function setName() {
+            document.getElementById('display_name').innerText = document.getElementById('name').value
+        }
+        function uploadImg(event) {
+            var dp = document.getElementById('display_image');
+            dp.src = URL.createObjectURL(event.target.files[0])
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-alpha1/html2canvas.js">
+            </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGMi Winning Side Confrence</title>
+</head>
+<body>
+    <section class="container" id="bg"
+    style="background-image: url(./i_will_be_there.png);
+    height: 1080px; width: 1018px; 
+    position: relative; display: flex; justify-content: center;">
+        <div class="row" 
+        style="position: absolute;
+        background: white;
+        height: 476px;
+        width: 476px;
+        border-radius: 50%;
+        margin-top: 237px;">
+            <img  id="display_image" crossOrigin="Anonymous" width="100%" height="100%" style="border-radius: 50%;" alt="">
+        </div>
+        <h3 id="display_name" style="color: #7c4c3f;
+            font-size: 52px;
+            font-weight: 900;
+            position: absolute;
+            margin-top: 560px;
+            margin-left: 500px;
+            background: white;
+            padding: 10px;
+            border-radius: 20px;">
+        Name Here
+        </h3>
+    </section>
+    <section class="cotainer" 
+            style="margin: 40px;
+            justify-content: center;
+            display: flex;">
+        <div class="row">
+            <div class="col-6">
+                <!-- <form id="form"> -->
+                    <label for="name">Enter your Name</label>
+                    <input id="name" onblur="setName()" type="text" id="name" placeholder="enter your name">
+                    <input type="file" accept="image/*" id="file" onchange="uploadImg(event)"> 
+                    <button onclick="downloadImage()" id="download" class="btn btn-primary">Download Flier</button>
+                <!-- </form> -->
+            </div>
+        </div>
+    </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</body>
+
+</html>
