@@ -16,43 +16,51 @@
     <title>CGMi Winning Side Confrence</title>
 </head>
 <body>
-    <section class="container" id="bg"
-    style="background-image: url(./i_will_be_there.jpg);
-    height: 1080px; width: 1018px; 
-    position: relative; display: flex; justify-content: center;">
-        <div class="row" 
-        style="position: absolute;
-        background: white;
-        height: 476px;
-        width: 476px;
-        border-radius: 50%;
-        margin-top: 237px;">
-            <img id="display_image" crossOrigin="Anonymous" width="100%" height="100%" style="border-radius: 50%;" alt="">
-        </div>
-        <h3 id="display_name" style="color: white;
-            font-size: 52px;
-            font-weight: 900;
-            position: absolute;
-            margin-top: 560px;
-            margin-left: 500px;
-            background: black;
-            padding: 10px;
-            border-radius: 20px;">
-        Name Here
-        </h3>
-    </section>
-    <section class="cotainer" 
-            style="margin: 40px;
-            justify-content: center;
-            display: flex;">
+    <section class="container">
         <div class="row">
-            <div class="col-6">
-                <!-- <form id="form"> -->
-                    <label for="name">Enter your Name</label>
-                    <input id="name" onblur="setName()" type="text" id="name" placeholder="enter your name">
-                    <input type="file" accept="image/*" id="file" onchange="uploadImg(event)"> 
-                    <button onclick="downloadImage()" id="download" class="btn btn-primary">Download Flier</button>
-                <!-- </form> -->
+            <div class="col-8">
+                <section class="container" id="bg"
+                style="background-image: url(./i_will_be_there.jpg);
+                height: 1080px; width: 1018px; 
+                position: relative; display: flex; justify-content: center;">
+                    <div class="row" 
+                    style="position: absolute;
+                    background: rgb(237, 237, 237);
+                    height: 476px;
+                    width: 476px;
+                    border-radius: 50%;
+                    margin-top: 237px;">
+                        <img id="display_image" crossOrigin="Anonymous" width="100%" height="100%" style="border-radius: 50%;" alt="">
+                    </div>
+                    <h3 id="display_name" style="color: white;
+                        font-size: 52px;
+                        font-weight: 900;
+                        position: absolute;
+                        margin-top: 560px;
+                        margin-left: 500px;
+                        background: black;
+                        padding: 10px;
+                        border-radius: 20px;">
+                    Name Here
+                    </h3>
+                </section>
+            </div>
+            <div class="col">
+                <section class="cotainer" 
+                        style="margin: 40px;
+                        justify-content: center;
+                        display: flex;">
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- <form id="form"> -->
+                                <label for="name">Enter your Name</label>
+                                <input id="name" onblur="setName()" type="text" id="name" placeholder="enter your name">
+                                <input type="file" accept="image/*" id="file" onchange="uploadImg(event)"> 
+                                <button onclick="downloadImage()" id="download" class="btn btn-primary">Download Flier</button>
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </section>
