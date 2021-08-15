@@ -1,37 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        function downloadImage(event) {
-            setName()
-        //   var file =   document.getElementById('file').value
-           
-            // $("#download").on('click', function(){
-            //     html2canvas(document.getElementById("bg"), { useCORS: true }).then(canvas  => {
-            //         Canvas2Image.saveAsPNG(canvas)
-            //     })
-            // })
-
-            document.querySelector('button').addEventListener('click', function () {
-                html2canvas(document.querySelector('#bg'), { useCORS: true }, {
-                    onrendered: function (canvas) {
-                        // document.body.appendChild(canvas);
-                        return Canvas2Image.saveAsPNG(canvas);
-                    }
-                });
-            });
-        };
-
-        
-
-        function setName() {
-            document.getElementById('display_name').innerText = document.getElementById('name').value
-        }
-        function uploadImg(event) {
-            var dp = document.getElementById('display_image');
-            dp.src = URL.createObjectURL(event.target.files[0])
-        }
-    </script>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
@@ -47,7 +17,7 @@
 </head>
 <body>
     <section class="container" id="bg"
-    style="background-image: url(./i_will_be_there.png);
+    style="background-image: url(./i_will_be_there.jpg);
     height: 1080px; width: 1018px; 
     position: relative; display: flex; justify-content: center;">
         <div class="row" 
@@ -57,15 +27,15 @@
         width: 476px;
         border-radius: 50%;
         margin-top: 237px;">
-            <img  id="display_image" crossOrigin="Anonymous" width="100%" height="100%" style="border-radius: 50%;" alt="">
+            <img id="display_image" crossOrigin="Anonymous" width="100%" height="100%" style="border-radius: 50%;" alt="">
         </div>
-        <h3 id="display_name" style="color: #7c4c3f;
+        <h3 id="display_name" style="color: white;
             font-size: 52px;
             font-weight: 900;
             position: absolute;
             margin-top: 560px;
             margin-left: 500px;
-            background: white;
+            background: black;
             padding: 10px;
             border-radius: 20px;">
         Name Here
@@ -88,6 +58,43 @@
     </section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    function downloadImage(event) {
+        setName()
+        //   var file =   document.getElementById('file').value
+
+        // $("#download").on('click', function(){
+        html2canvas(document.getElementById("bg")).then(canvas => {
+            Canvas2Image.saveAsPNG(canvas)
+            // document.body.appendChild(canvas)S
+        })
+        // })
+
+            // document.querySelector('button').addEventListener('click', function () {
+            //     html2canvas(document.querySelector('#bg'), { useCORS: true }, {
+            //         onrendered: function (canvas) {
+            //             // document.body.appendChild(canvas);
+            //             return Canvas2Image.saveAsPNG(canvas);
+            //         }
+            //     });
+            // });
+    };
+
+
+
+    function setName() {
+        document.getElementById('display_name').innerText = document.getElementById('name').value
+    }
+    function uploadImg(event) {
+        var reader = new FileReader();
+        reader.onload = () => {
+            var dp = document.getElementById('display_image');
+            // dp.src = URL.createObjectURL(event.target.files[0])
+            dp.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
 </body>
 
 </html>
